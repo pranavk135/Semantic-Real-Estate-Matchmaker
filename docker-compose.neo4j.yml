@@ -1,0 +1,15 @@
+# TEAMMATE laptop. The setup script writes/uses this; ngrok then tunnels port 7687.
+services:
+  neo4j:
+    image: neo4j:5
+    container_name: realestate-neo4j
+    restart: unless-stopped
+    environment:
+      NEO4J_AUTH: neo4j/password123
+    ports:
+      - "7474:7474"
+      - "7687:7687"
+    volumes:
+      - neo4j_data:/data
+volumes:
+  neo4j_data:

@@ -1,0 +1,35 @@
+{
+  "name": "semantic-real-estate-matchmaker",
+  "version": "2.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev -H 0.0.0.0",
+    "build": "next build",
+    "start": "next start -H 0.0.0.0",
+    "db:setup": "tsx scripts/db-setup.ts all",
+    "db:schema": "tsx scripts/db-setup.ts schema",
+    "db:seed": "tsx scripts/db-setup.ts seed",
+    "db:reset": "tsx scripts/db-setup.ts reset",
+    "sync:watch": "tsx scripts/sync-watch.ts",
+    "sync:once": "tsx scripts/sync-once.ts",
+    "check": "tsx scripts/check-connections.ts",
+    "setup": "tsx scripts/db-setup.ts all"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "neo4j-driver": "^5.28.1",
+    "next": "^15.5.6",
+    "pg": "^8.13.1",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "@types/node": "^22.19.0",
+    "@types/pg": "^8.11.10",
+    "@types/react": "^19.2.2",
+    "@types/react-dom": "^19.2.2",
+    "tsx": "^4.20.6",
+    "typescript": "^5.9.3"
+  }
+}

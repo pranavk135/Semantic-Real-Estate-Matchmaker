@@ -1,0 +1,33 @@
+# SINGLE-DEVICE: runs both databases on one laptop.
+#   docker compose up -d
+# TWO-DEVICE: use docker-compose.postgres.yml (your laptop)
+#             and docker-compose.neo4j.yml (teammate's laptop) instead.
+services:
+  postgres:
+    image: postgres:16
+    container_name: realestate-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: realestate
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  neo4j:
+    image: neo4j:5
+    container_name: realestate-neo4j
+    restart: unless-stopped
+    environment:
+      NEO4J_AUTH: neo4j/password123
+    ports:
+      - "7474:7474"
+      - "7687:7687"
+    volumes:
+      - neo4j_data:/data
+
+volumes:
+  postgres_data:
+  neo4j_data:
